@@ -3,6 +3,8 @@ import { Story, Meta } from '@storybook/react';
 
 import { Viewer, IViewerProps } from '../components/viewer/Viewer';
 
+import './style.css';
+
 export default {
   title: 'Viewer',
   component: Viewer,
@@ -17,5 +19,5 @@ MapViewer.args = {
 
 export const SceneViewer = Template.bind({});
 SceneViewer.args = {
-  dimension: '3d',
+  dimension: '3d'
 };

@@ -1,7 +1,7 @@
 import React from "react";
 
-const WebMap = (props) => {
+const WebMapView = (props) => {
   return <h2>Hello from WebMap</h2>
 }
 
-export { WebMap }
+export { WebMapView }
