@@ -2,8 +2,6 @@ import React from "react";
 import { WebMapView } from "../webmap/WebMapView";
 import { WebSceneView } from "../webscene/WebSceneView";
 
-import "@arcgis/core/assets/esri/themes/light/main.css";
-
 interface IViewerProps {
   [key:string]: any;
   dimension: '2d' | '3d';
