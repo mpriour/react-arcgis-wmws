@@ -17,7 +17,7 @@ const WebSceneView = ({
   })
   const View = new SceneView({
     map: scene,
-    container: viewRef.current
+    container: viewRef.current as HTMLDivElement
   })
   return ViewContainer
 }

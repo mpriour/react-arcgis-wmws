@@ -17,7 +17,7 @@ const WebMapView = ({
   })
   const View = new MapView({
     map,
-    container: viewRef.current
+    container: viewRef.current as HTMLDivElement
   })
   return ViewContainer
 }

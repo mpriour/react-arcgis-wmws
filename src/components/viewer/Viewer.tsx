@@ -19,4 +19,6 @@ const Viewer = ({
   <WebSceneView id={sampleId} {...props}></WebSceneView>
 }
 
-export { Viewer, IViewerProps }
+export { Viewer }
+export type { IViewerProps }
+
