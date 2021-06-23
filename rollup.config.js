@@ -19,13 +19,13 @@ export default [
       nodeResolve(),
       commonjs(),
       typescript({
-        target: 'ES2018',
+        target: 'ESNext',
         declarationDir: './dist/esm'
       }),
       postcss()
     ]
   },
-  {
+  /*{
     input: './src/index.ts',
     output: [
       {
@@ -43,5 +43,5 @@ export default [
       }),
       postcss()
     ]
-  }
+  }*/
 ]
