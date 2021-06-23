@@ -16,7 +16,7 @@
     //"noEmit": true,
     "emitDeclarationOnly": true,
     "jsx": "react",
-    "jsxFactory": "React.CreateElement",
+    "jsxFactory": "React.createElement",
     "jsxFragmentFactory": "React.Fragment"
   },
   "include": ["src"],
