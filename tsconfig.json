@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "declaration": true,
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
@@ -12,10 +13,16 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    //"noEmit": true,
+    "emitDeclarationOnly": true,
     "jsx": "react",
     "jsxFactory": "React.CreateElement",
     "jsxFragmentFactory": "React.Fragment"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": [
+    "dist",
+    "src/**/*.stories.tsx",
+    "src/**/*.test.tsx"
+  ]
 }

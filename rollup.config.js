@@ -9,10 +9,6 @@ export default [
     input: './src/index.ts',
     output: [
       {
-        format: 'cjs',
-        dir: './dist/cjs'
-      },
-      {
         dir: './dist/esm',
         format: 'es',
         exports: 'named'
@@ -23,7 +19,27 @@ export default [
       nodeResolve(),
       commonjs(),
       typescript({
-        target: 'ES2018'
+        target: 'ES2018',
+        declarationDir: './dist/esm'
+      }),
+      postcss()
+    ]
+  },
+  {
+    input: './src/index.ts',
+    output: [
+      {
+        dir: './dist/cjs',
+        format: 'cjs'
+      }
+    ],
+    plugins: [
+      external(),
+      nodeResolve(),
+      commonjs(),
+      typescript({
+        target: 'ES2018',
+        declarationDir: './dist/cjs'
       }),
       postcss()
     ]
