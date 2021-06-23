@@ -10,11 +10,13 @@ interface IViewerProps {
 }
 
 const Viewer = ({
-  dimension='3d',
-  sampleId='1c7a06421a314ac9b7d0fae22aa367fb',
+  dimension,
+  sampleId,
   ...props
 }:IViewerProps) => {
-  return dimension == '2d' ? <WebMapView /> : <WebSceneView id={sampleId} {...props} />
+  return dimension == '2d' ?
+  <WebMapView id={sampleId} {...props}></WebMapView> :
+  <WebSceneView id={sampleId} {...props}></WebSceneView>
 }
 
 export { Viewer, IViewerProps }
