@@ -10,7 +10,8 @@ export default {
   component: Viewer,
 } as Meta;
 
-const Template: Story<IViewerProps> = (args) => <Viewer {...args} />;
+const Template: Story<IViewerProps> = (args) => <Viewer style={{ minHeight: '90vh' }} {...args} />
+
 
 export const MapViewer = Template.bind({});
 MapViewer.args = {

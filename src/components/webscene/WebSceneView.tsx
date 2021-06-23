@@ -11,7 +11,7 @@ const WebSceneView = ({
   ...props
 }:IWebSceneProps) => {
   const viewRef = useRef<HTMLDivElement>(null);
-  const ViewContainer = <div ref={viewRef} style={{minHeight:'90vh'}} {...props} />;
+  const ViewContainer = <div ref={viewRef} {...props} />;
   const scene = new WebScene({
     portalItem: {id}
   })

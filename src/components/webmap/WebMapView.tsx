@@ -11,7 +11,7 @@ const WebMapView = ({
   ...props
 }:IWebMapProps) => {
   const viewRef = useRef<HTMLDivElement>(null);
-  const ViewContainer = <div ref={viewRef} style={{minHeight:'90vh'}} {...props} />;
+  const ViewContainer = <div ref={viewRef} {...props} />;
   const map = new WebMap({
     portalItem: {id}
   })
