@@ -25,7 +25,7 @@ export default [
       postcss()
     ]
   },
-  /*{
+  {
     input: './src/index.ts',
     output: [
       {
@@ -43,5 +43,5 @@ export default [
       }),
       postcss()
     ]
-  }*/
+  }
 ]
