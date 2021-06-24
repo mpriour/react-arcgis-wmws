@@ -13,7 +13,9 @@ const WebSceneView = ({
   const viewRef = useRef<HTMLDivElement>(null);
   const ViewContainer = <div ref={viewRef} {...props} />;
   const scene = new WebScene({
-    portalItem: {id}
+    portalItem: {id, portal:{
+      url:'https://devext.arcgis.com'
+    }}
   })
   const View = new SceneView({
     map: scene,

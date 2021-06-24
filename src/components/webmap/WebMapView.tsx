@@ -12,8 +12,11 @@ const WebMapView = ({
 }:IWebMapProps) => {
   const viewRef = useRef<HTMLDivElement>(null);
   const ViewContainer = <div ref={viewRef} {...props} />;
+  debugger;
   const map = new WebMap({
-    portalItem: {id}
+    portalItem: {id, portal:{
+      url:'https://devext.arcgis.com'
+    }}
   })
   const View = new MapView({
     map,
