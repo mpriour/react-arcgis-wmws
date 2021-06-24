@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import esriConfig from "@arcgis/core/config";
+import React from "react";
 import { WebMapView } from "../webmap/WebMapView";
 import { WebSceneView } from "../webscene/WebSceneView";
 
@@ -9,19 +8,22 @@ interface IViewerProps {
   [key:string]: any;
   dimension: '2d' | '3d';
   sampleId: string;
+  env: 'prod' | 'qa' | 'uat' | 'dev';
 }
 
 const Viewer = ({
   dimension,
   sampleId,
+  env = 'prod',
   ...props
 }:IViewerProps) => {
-  useEffect(()=>{
-    esriConfig.assetsPath = "./"
-  }, [])
-  return dimension == '2d' ?
-  <WebMapView id={sampleId} {...props}></WebMapView> :
-  <WebSceneView id={sampleId} {...props}></WebSceneView>
+  let portalSub = 'www';
+  if(env == 'dev'){ portalSub = 'devext' }
+  if(env == 'qa' || env == 'uat'){ portalSub = 'qaext' }
+  const portal = `https://${portalSub}.arcgis.com`
+  return dimension == '3d' ?
+  <WebSceneView id={sampleId} portalUrl={portal} {...props}></WebSceneView> :
+  <WebMapView id={sampleId} portalUrl={portal} {...props}></WebMapView>
 }
 
 export { Viewer }

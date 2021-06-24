@@ -4,19 +4,24 @@ import MapView from "@arcgis/core/views/MapView"
 
 interface IWebMapProps {
   id: string;
+  portalUrl: string;
 }
 
 const WebMapView = ({
   id,
+  portalUrl = 'https://www.arcgis.com',
   ...props
 }:IWebMapProps) => {
   const viewRef = useRef<HTMLDivElement>(null);
   const ViewContainer = <div ref={viewRef} {...props} />;
   debugger;
   const map = new WebMap({
-    portalItem: {id, portal:{
-      url:'https://devext.arcgis.com'
-    }}
+    portalItem: {
+      id,
+      portal:{
+        url: portalUrl
+      }
+    }
   })
   const View = new MapView({
     map,
