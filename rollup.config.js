@@ -2,7 +2,7 @@ import external from "rollup-plugin-peer-deps-external";
 import {nodeResolve} from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import postcss from "rollup-plugin-postcss";
+//import postcss from "rollup-plugin-postcss";
 
 export default [
   {
@@ -21,8 +21,8 @@ export default [
       typescript({
         target: 'ESNext',
         declarationDir: './dist/esm'
-      }),
-      postcss()
+      })/* ,
+      postcss() */
     ]
   },
   {
@@ -39,9 +39,10 @@ export default [
       commonjs(),
       typescript({
         target: 'ES2018',
+        importHelpers: true,
         declarationDir: './dist/cjs'
-      }),
-      postcss()
+      })/* ,
+      postcss() */
     ]
   }
 ]

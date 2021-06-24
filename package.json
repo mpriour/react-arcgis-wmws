@@ -21,8 +21,7 @@
   "author": "Matt Priour",
   "license": "ISC",
   "repository": "github:mpriour/react-arcgis-wmws",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@arcgis/core": "^4.19.3",
     "@babel/core": "^7.14.6",
@@ -40,6 +39,7 @@
     "rollup": "^2.52.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0",
+    "tslib": "^2.3.0",
     "typescript": "^4.3.4"
   },
   "peerDependencies": {
