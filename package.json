@@ -26,9 +26,9 @@
   "license": "ISC",
   "repository": "github:mpriour/react-arcgis-wmws",
   "dependencies": {
-    "@arcgis/core": "^4.19.3"
   },
   "devDependencies": {
+    "@arcgis/core": "^4.19.3",
     "@babel/core": "^7.14.6",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
@@ -49,6 +49,7 @@
   },
   "peerDependencies": {
     "react": ">=15.x",
-    "react-dom": ">=15.x"
+    "react-dom": ">=15.x",
+    "@arcgis/core": ">=4.18"
   }
 }
