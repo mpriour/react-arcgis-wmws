@@ -3,12 +3,12 @@ import WebScene from "@arcgis/core/WebScene"
 import SceneView from "@arcgis/core/views/SceneView"
 
 interface IWebSceneProps {
-  id: string;
+  itemId: string;
   portalUrl: string;
 }
 
 const WebSceneView = ({
-  id,
+  itemId,
   portalUrl = 'https://www.arcgis.com',
   ...props
 }:IWebSceneProps) => {
@@ -16,7 +16,7 @@ const WebSceneView = ({
   const ViewContainer = <div ref={viewRef} {...props} />;
   const scene = new WebScene({
     portalItem: {
-      id,
+      id: itemId,
       portal:{
         url: portalUrl
       }

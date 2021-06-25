@@ -7,23 +7,23 @@ import "@arcgis/core/assets/esri/themes/light/main.css";
 interface IViewerProps {
   [key:string]: any;
   dimension: '2d' | '3d';
-  sampleId: string;
+  itemId: string;
   env: 'prod' | 'qa' | 'uat' | 'dev';
 }
 
 const Viewer = ({
   dimension,
-  sampleId,
+  itemId,
   env = 'prod',
   ...props
 }:IViewerProps) => {
   let portalSub = 'www';
   if(env == 'dev'){ portalSub = 'devext' }
-  if(env == 'qa' || env == 'uat'){ portalSub = 'qaext' }
+  else if(env == 'qa' || env == 'uat'){ portalSub = 'qaext' }
   const portal = `https://${portalSub}.arcgis.com`
   return dimension == '3d' ?
-  <WebSceneView id={sampleId} portalUrl={portal} {...props}></WebSceneView> :
-  <WebMapView id={sampleId} portalUrl={portal} {...props}></WebMapView>
+  <WebSceneView itemId={itemId} portalUrl={portal} {...props}></WebSceneView> :
+  <WebMapView itemId={itemId} portalUrl={portal} {...props}></WebMapView>
 }
 
 export { Viewer }

@@ -18,12 +18,12 @@ export const MapViewer = Template.bind({});
 MapViewer.args = {
   dimension: '2d',
   env: 'prod',
-  sampleId: 'f2e9b762544945f390ca4ac3671cfa72'
+  itemId: 'f2e9b762544945f390ca4ac3671cfa72'
 };
 
 export const SceneViewer = Template.bind({});
 SceneViewer.args = {
   dimension: '3d',
   env: 'prod',
-  sampleId: '1c7a06421a314ac9b7d0fae22aa367fb'
+  itemId: '1c7a06421a314ac9b7d0fae22aa367fb'
 };

@@ -3,12 +3,12 @@ import WebMap from "@arcgis/core/WebMap"
 import MapView from "@arcgis/core/views/MapView"
 
 interface IWebMapProps {
-  id: string;
+  itemId: string;
   portalUrl: string;
 }
 
 const WebMapView = ({
-  id,
+  itemId,
   portalUrl = 'https://www.arcgis.com',
   ...props
 }:IWebMapProps) => {
@@ -16,7 +16,7 @@ const WebMapView = ({
   const ViewContainer = <div ref={viewRef} {...props} />;
   const map = new WebMap({
     portalItem: {
-      id,
+      id: itemId,
       portal:{
         url: portalUrl
       }
