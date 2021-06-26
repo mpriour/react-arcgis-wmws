@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import WebMap from "@arcgis/core/WebMap"
 import MapView from "@arcgis/core/views/MapView"
 
@@ -14,18 +14,25 @@ const WebMapView = ({
 }:IWebMapProps) => {
   const viewRef = useRef<HTMLDivElement>(null);
   const ViewContainer = <div ref={viewRef} {...props} />;
-  const map = new WebMap({
-    portalItem: {
-      id: itemId,
-      portal:{
-        url: portalUrl
+
+  useEffect(()=>{
+    const map = new WebMap({
+      portalItem: {
+        id: itemId,
+        portal:{
+          url: portalUrl
+        }
       }
+    })
+    const View = new MapView({
+      map,
+      container: viewRef.current as HTMLDivElement
+    })
+    return ()=>{
+      map.destroy()
+      View.destroy()
     }
-  })
-  const View = new MapView({
-    map,
-    container: viewRef.current as HTMLDivElement
-  })
+  },[itemId, portalUrl])
   return ViewContainer
 }
 

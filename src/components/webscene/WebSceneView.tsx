@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import WebScene from "@arcgis/core/WebScene"
 import SceneView from "@arcgis/core/views/SceneView"
 
@@ -14,18 +14,25 @@ const WebSceneView = ({
 }:IWebSceneProps) => {
   const viewRef = useRef<HTMLDivElement>(null);
   const ViewContainer = <div ref={viewRef} {...props} />;
-  const scene = new WebScene({
-    portalItem: {
-      id: itemId,
-      portal:{
-        url: portalUrl
+
+  useEffect(()=>{
+    const scene = new WebScene({
+      portalItem: {
+        id: itemId,
+        portal:{
+          url: portalUrl
+        }
       }
+    })
+    const View = new SceneView({
+      map: scene,
+      container: viewRef.current as HTMLDivElement
+    })
+    return ()=>{
+      scene.destroy()
+      View.destroy()
     }
-  })
-  const View = new SceneView({
-    map: scene,
-    container: viewRef.current as HTMLDivElement
-  })
+  }, [itemId, portalUrl])
   return ViewContainer
 }
 
