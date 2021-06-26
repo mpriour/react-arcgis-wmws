@@ -17,7 +17,6 @@ const Template: Story<IViewerProps> = (args) => <Viewer style={{ minHeight: '90v
 export const MapViewer = Template.bind({});
 MapViewer.args = {
   dimension: '2d',
-  env: 'prod',
   itemId: 'f2e9b762544945f390ca4ac3671cfa72'
 };
 
