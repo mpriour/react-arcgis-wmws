@@ -25,6 +25,7 @@
   "author": "Matt Priour",
   "license": "ISC",
   "repository": "github:mpriour/react-arcgis-wmws",
+  "homepage": "https://mpriour.github.io/react-arcgis-wmws/",
   "dependencies": {},
   "devDependencies": {
     "@arcgis/core": "^4.19.3",
