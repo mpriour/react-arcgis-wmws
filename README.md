@@ -58,7 +58,17 @@ const {Viewer} = require('react-arcgis-wmws')
 ## Integration in your project
 The `Viewer` component wraps the MapView and SceneView classes from the ArcGIS JS API. These classes bring the full power and weight of the ArcGIS JS API in order to display whatever what was configured to show in the map / scene. The initial basic styling **is** included in the `Viewer` component directly. However, dynamically loaded styles, workers, and scripts can not be reasonably included directly in the `Viewer` component. This is why "@arcgis/core" is a peer dependency.
 
-In order for the dynamic loading of the required parts of the ArcGIS JS API to work, you need to do 2 things:
+In order for the dynamic loading of the required parts of the ArcGIS JS API to work, you have 2 choices:
+1. Load the files from a CDN.
+2. Load the files from your own website.
+
+Option #1 is the simplest and just requires that you include a CSS import statement pointing to the CSS file for the version of the ArcGIS JS API you are using and the appropriate color theme. For example, for version 4.19, you could use the following statement:
+
+```css
+@import "https://js.arcgis.com/4.19/@arcgis/core/assets/esri/themes/light/main.css";
+```
+
+If you choose to host and manage the @arcgis/core assets yourself you will need to do 2 things:
 1. Copy the files from `@arcgis/core/assets` into an available location where you serve static files from.
 2. Set the `assetsPath` property of `@arcgis/core/config`.
 
