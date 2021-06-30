@@ -8,12 +8,16 @@ interface IViewerProps {
   [key:string]: any;
   dimension: '2d' | '3d';
   itemId: string;
-  env: 'prod' | 'qa' | 'uat' | 'dev';
+  dockPopup?: boolean;
+  showLegend?: boolean;
+  env?: 'prod' | 'qa' | 'uat' | 'dev';
 }
 
 const Viewer = ({
   dimension,
   itemId,
+  dockPopup = true,
+  showLegend = false,
   env = 'prod',
   ...props
 }:IViewerProps) => {
@@ -23,7 +27,7 @@ const Viewer = ({
   const portal = `https://${portalSub}.arcgis.com`
   return dimension == '3d' ?
   <WebSceneView itemId={itemId} portalUrl={portal} {...props}></WebSceneView> :
-  <WebMapView itemId={itemId} portalUrl={portal} {...props}></WebMapView>
+  <WebMapView itemId={itemId} portalUrl={portal} dockPopup={dockPopup} showLegend={showLegend} {...props}></WebMapView>
 }
 
 export { Viewer }
