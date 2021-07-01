@@ -22,7 +22,7 @@ export default {
     },
     env: {
       defaultValue: 'prod',
-      //control: 'select'
+      control: 'select'
     },
   }
 } as Meta;

@@ -40,6 +40,8 @@ import {Viewer} from 'react-arcgis-wmws';
 `Viewer` component exposes the following attributes:
 * `dimension` = "2d" | "3d" (required)
 * `itemId` = {ArcGIS Online item ID for a public WebMap or WebScene} (required - ids for other item types will __not__ work)
+* `dockPopup` = boolean - **OPTIONAL** default `true` - Should the popup be docked by default or not
+* `showLegend` = boolean - **OPTIONAL** default `false` - Should a legend be shown
 * `env` = "prod" (default) | "qa" | "uat" | "dev" - **OPTIONAL** (only useful to developers / applications with access to ArcGIS Online development or QA environments)
 
 _import and require are both supported_
