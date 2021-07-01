@@ -22,7 +22,7 @@
   "include": ["src"],
   "exclude": [
     "dist",
-    "src/**/*.stories.tsx",
+    "src/stories",
     "src/**/*.test.tsx"
   ]
 }
