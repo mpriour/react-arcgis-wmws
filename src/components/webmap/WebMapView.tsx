@@ -37,8 +37,10 @@ const WebMapView = ({
     })
     viewRef.current = view
     return ()=>{
+      legendRef.current && legendRef.current.destroy()
       map.destroy()
       view.destroy()
+      legendRef.current = null
       viewRef.current = null
     }
   },[itemId, portalUrl])

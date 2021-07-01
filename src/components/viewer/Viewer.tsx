@@ -26,7 +26,7 @@ const Viewer = ({
   else if(env == 'qa' || env == 'uat'){ portalSub = 'qaext' }
   const portal = `https://${portalSub}.arcgis.com`
   return dimension == '3d' ?
-  <WebSceneView itemId={itemId} portalUrl={portal} {...props}></WebSceneView> :
+  <WebSceneView itemId={itemId} portalUrl={portal} dockPopup={dockPopup} showLegend={showLegend} {...props}></WebSceneView> :
   <WebMapView itemId={itemId} portalUrl={portal} dockPopup={dockPopup} showLegend={showLegend} {...props}></WebMapView>
 }
 
