@@ -4,6 +4,9 @@
   "description": "React component to display an arcgis online webmap or webscene. Includes what is needed from @arcgis/core to display the webmap or webscene and does not use esri-loader.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
   "exports": {
     "import": "./dist/esm/index.js",
     "require": "./dist/cjs/index.js"

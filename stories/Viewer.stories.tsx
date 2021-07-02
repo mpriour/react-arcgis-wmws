@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { Viewer, IViewerProps } from '../components/viewer/Viewer';
+import { Viewer, IViewerProps } from '../src/components/viewer/Viewer';
 
 import '@arcgis/core/assets/esri/themes/light/main.css';
 import './style.css';

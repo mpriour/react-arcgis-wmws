@@ -19,10 +19,10 @@
     "jsxFactory": "React.createElement",
     "jsxFragmentFactory": "React.Fragment"
   },
-  "include": ["src"],
+  "include": ["src", "stories"],
   "exclude": [
     "dist",
-    "src/stories",
+    "stories",
     "src/**/*.test.tsx"
   ]
 }
