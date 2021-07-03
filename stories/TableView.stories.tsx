@@ -8,7 +8,7 @@ import '@arcgis/core/assets/esri/themes/light/main.css';
 import './style.css';
 
 export default {
-  title: 'TableView',
+  title: 'TableView (Experimental)',
   component: TableView
 } as Meta
 
