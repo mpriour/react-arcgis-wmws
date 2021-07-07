@@ -7,9 +7,9 @@ import Portal from "@arcgis/core/portal/Portal";
 import PortalItem from "@arcgis/core/portal/PortalItem";
 
  export type TableViewProps = (
-  | {itemId: string, url?: never, layer?: never}
-  | {itemId?: never, url: string, layer?: never}
-  | {itemId?: never, url?: never, layer: FeatureLayer | SceneLayer}
+  | {itemId: string, url?: never, layer?: never, env?: 'prod' | 'qa' | 'uat' | 'dev'}
+  | {itemId?: never, url: string, layer?: never, env?: never}
+  | {itemId?: never, url?: never, layer: FeatureLayer | SceneLayer, env?: never}
 )
 
 function resolveLayer(lyr:Layer){
@@ -42,7 +42,7 @@ function layerFromUrl(url: string){
 }
 
 export const TableView = ({
-  itemId, url, layer, ...props
+  itemId, url, layer, env='prod', ...props
 }:TableViewProps)=>{
   const tableDivRef = useRef<HTMLDivElement>(null)
   const TableContainer = <div ref={tableDivRef} {...props} />
@@ -53,7 +53,11 @@ export const TableView = ({
       setTableLayer(layer)
     }
     else if(itemId){
-      layerFromId(itemId).then((lyr)=>{setTableLayer(lyr)})
+      let portalSub = 'www'
+      if(env == 'dev'){ portalSub = 'devext' }
+      else if(env == 'qa' || env == 'uat'){ portalSub = 'qaext' }
+      const portal = `https://${portalSub}.arcgis.com`
+      layerFromId(itemId, portal).then((lyr)=>{setTableLayer(lyr)})
     }
     else if(url){
       layerFromUrl(url).then((lyr)=>{setTableLayer(lyr)})
