@@ -6,7 +6,9 @@ import FeatureTable from "@arcgis/core/widgets/FeatureTable";
 import Portal from "@arcgis/core/portal/Portal";
 import PortalItem from "@arcgis/core/portal/PortalItem";
 
- export type TableViewProps = (
+ export type TableViewProps =
+ {[key:string] : any} &
+ (
   | {itemId: string, url?: never, layer?: never, env?: 'prod' | 'qa' | 'uat' | 'dev'}
   | {itemId?: never, url: string, layer?: never, env?: never}
   | {itemId?: never, url?: never, layer: FeatureLayer | SceneLayer, env?: never}

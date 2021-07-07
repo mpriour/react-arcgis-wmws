@@ -20,7 +20,7 @@ const lyr = new FeatureLayer({
   url: 'https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Mexico_demographics/FeatureServer/0'
 })
 
-const Template : Story<TableViewProps & AllHTMLAttributes<HTMLDivElement>> = (args) => <TableView style={tableStyle} {...args} />
+const Template : Story<TableViewProps> = (args) => <TableView style={tableStyle} {...args} />
 
 export const FromId = Template.bind({})
 FromId.args = {
