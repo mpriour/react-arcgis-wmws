@@ -43,6 +43,7 @@ function layerFromUrl(url: string){
   return Layer.fromArcGISServerUrl({ url }).then(resolveLayer)
 }
 
+
 export const TableView = ({
   itemId, url, layer, env='prod', ...props
 }:TableViewProps)=>{
@@ -50,6 +51,13 @@ export const TableView = ({
   const TableContainer = <div ref={tableDivRef} {...props} />
   const [tableLayer, setTableLayer] = useState<FeatureLayer|SceneLayer>()
   const tableRef = useRef<FeatureTable>()
+
+  function tableCleanUp(){
+    if(tableRef.current && tableDivRef.current){
+      tableDivRef.current.innerHTML = ''
+      tableRef.current = undefined
+    }
+  }
 
   useEffect(() => {
     if(layer){
@@ -68,20 +76,18 @@ export const TableView = ({
   }, [itemId, url, layer, env])
 
   useEffect(() => {
-    if(tableRef.current){
-      tableRef.current.destroy()
-      tableRef.current = undefined
+    tableCleanUp()
+    if(tableLayer){
+      tableRef.current = new FeatureTable({
+        layer: tableLayer,
+        container: tableDivRef.current as HTMLDivElement,
+        visibleElements: {
+          selectionColumn: false
+        }
+      })
     }
-    tableRef.current = new FeatureTable({
-      layer: tableLayer,
-      container: tableDivRef.current as HTMLDivElement,
-      visibleElements: {
-        selectionColumn: false
-      }
-    })
     return ()=>{
-      tableRef.current?.destroy()
-      tableRef.current = undefined
+      tableCleanUp()
     }
   }, [tableLayer])
 
