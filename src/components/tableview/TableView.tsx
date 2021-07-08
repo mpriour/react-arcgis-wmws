@@ -74,7 +74,10 @@ export const TableView = ({
     }
     tableRef.current = new FeatureTable({
       layer: tableLayer,
-      container: tableDivRef.current as HTMLDivElement
+      container: tableDivRef.current as HTMLDivElement,
+      visibleElements: {
+        selectionColumn: false
+      }
     })
     return ()=>{
       tableRef.current?.destroy()
