@@ -49,6 +49,7 @@ export const TableView = ({
   const tableDivRef = useRef<HTMLDivElement>(null)
   const TableContainer = <div ref={tableDivRef} {...props} />
   const [tableLayer, setTableLayer] = useState<FeatureLayer|SceneLayer>()
+  const tableRef = useRef<FeatureTable>()
 
   useEffect(() => {
     if(layer){
@@ -64,13 +65,21 @@ export const TableView = ({
     else if(url){
       layerFromUrl(url).then((lyr)=>{setTableLayer(lyr)})
     }
-  }, [itemId, url, layer])
+  }, [itemId, url, layer, env])
 
   useEffect(() => {
-    new FeatureTable({
+    if(tableRef.current){
+      tableRef.current.destroy()
+      tableRef.current = undefined
+    }
+    tableRef.current = new FeatureTable({
       layer: tableLayer,
       container: tableDivRef.current as HTMLDivElement
     })
+    return ()=>{
+      tableRef.current?.destroy()
+      tableRef.current = undefined
+    }
   }, [tableLayer])
 
   return TableContainer
