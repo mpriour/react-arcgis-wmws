@@ -21,6 +21,7 @@ import {Viewer} from 'react-arcgis-wmws';
 <Viewer
   dimension="2d"
   itemId="f2e9b762544945f390ca4ac3671cfa72"
+  style={{height:60vh}}
 />
 ```
 
@@ -30,19 +31,49 @@ import {Viewer} from 'react-arcgis-wmws';
 <Viewer
   dimension="3d"
   itemId="1c7a06421a314ac9b7d0fae22aa367fb"
+  style={{height:60vh}}
+/>
+```
+
+_Table displaying feature data from a URL_
+```jsx
+import {TableView} from 'react-arcgis-wmws';
+<TableView
+  url="https://services.arcgis.com/V6ZHFr6zdgNZuVG0/ArcGIS/rest/services/Chicago_Covid_Daily_Cases_Deaths_and_Hospitalizations/FeatureServer/0"
+  style={{height:60vh}}
+/>
+```
+
+_Table displaying feature data from an ItemId_
+```jsx
+import {TableView} from 'react-arcgis-wmws';
+<TableView
+  itemId="6aa49be79248400ebd28f1d0c6af3f9f"
+  style={{height:60vh}}
 />
 ```
 
 **API**
 
-`react-arcgis-wmws` exposes a single named export of `Viewer`.
+`react-arcgis-wmws` exposes two named exports:
+1. `Viewer`
+2. `TableView`
 
 `Viewer` component exposes the following attributes:
 * `dimension` = "2d" | "3d" (required)
-* `itemId` = {ArcGIS Online item ID for a public WebMap or WebScene} (required - ids for other item types will __not__ work)
+* `itemId` = ArcGIS Online item ID string for a public WebMap or WebScene (required - ids for other item types will __not__ work)
 * `dockPopup` = boolean - **OPTIONAL** default `true` - Should the popup be docked by default or not
 * `showLegend` = boolean - **OPTIONAL** default `false` - Should a legend be shown
 * `env` = "prod" (default) | "qa" | "uat" | "dev" - **OPTIONAL** (only useful to developers / applications with access to ArcGIS Online development or QA environments)
+
+`TableView` component exposes the following attributes:
+* `itemId` = ArcGIS Online item ID string for a public FeatureLayer or SceneLayer
+* `url` = Fully qualified URL string to a public FeatureLayer or SceneLayer
+* `layer` = Actual FeatureLayer or SceneLayer object
+* `env` = "prod" (default) | "qa" | "uat" | "dev" - **OPTIONAL** (only used in conjunction with `itemId` and only useful to developers / applications with access to ArcGIS Online development or QA environments)
+
+`TableView` **Requires** 1 and **only 1** of the following attributes `itemId`, `url`, or `layer`. Adding more than 1 of these will cause some of them to be ignored and can also result in errors.
+
 
 _import and require are both supported_
 ```js
@@ -55,10 +86,10 @@ const {Viewer} = require('react-arcgis-wmws')
 
 **NOTE**
 
-`Viewer` component __MUST__ be given a real height (something that eventually resolves to a pixel value). You can achieve this by giving it an inline-style or assigning an id and using css to style the component. You **can not** use class(es) on the `Viewer` component, they will be completely removed and overwritten by the @arcgis/core library.
+Both `Viewer` and `TableView` components __MUST__ be given a real height (something that eventually resolves to a pixel value). You can achieve this by giving it an inline-style or assigning an id and using css to style the component. You **can not** use class(es) on either the `Viewer` or `TableView` component, they will be completely removed and overwritten by the @arcgis/core library.
 
 ## Integration in your project
-The `Viewer` component wraps the MapView and SceneView classes from the ArcGIS JS API. These classes bring the full power and weight of the ArcGIS JS API in order to display whatever what was configured to show in the map / scene. The initial basic styling **is** included in the `Viewer` component directly. However, dynamically loaded styles, workers, and scripts can not be reasonably included directly in the `Viewer` component. This is why "@arcgis/core" is a peer dependency.
+The `Viewer` component wraps the MapView and SceneView classes from the ArcGIS JS API. These classes bring the full power and weight of the ArcGIS JS API in order to display whatever what was configured to show in the map / scene. The `TableView` component wraps the FeatureTable widget. The initial basic styling **is** included in both the `Viewer` and `TableView` components directly. However, dynamically loaded styles, workers, and scripts can not be reasonably included directly in these components. This is why "@arcgis/core" is a peer dependency.
 
 In order for the dynamic loading of the required parts of the ArcGIS JS API to work, you have 2 choices:
 1. Load the files from a CDN.
