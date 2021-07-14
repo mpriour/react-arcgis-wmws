@@ -24,26 +24,5 @@ export default [
       }),
       postcss()
     ]
-  },
-  {
-    input: './src/index.ts',
-    output: [
-      {
-        dir: './dist/cjs',
-        format: 'cjs',
-        entryFileNames: '[name].cjs'
-      }
-    ],
-    plugins: [
-      external(),
-      nodeResolve(),
-      commonjs(),
-      typescript({
-        target: 'ES2018',
-        importHelpers: true,
-        declarationDir: './dist/cjs'
-      }),
-      postcss()
-    ]
   }
 ]
