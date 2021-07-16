@@ -6,7 +6,7 @@ A proof of concept component for displaying and interacting with ArcGIS Online W
 
 ### Installation
 ```shell
-npm i react-arcgis-wms
+npm i react-arcgis-wmws
 ```
 
 **Peer dependencies**
@@ -75,13 +75,10 @@ import {TableView} from 'react-arcgis-wmws';
 `TableView` **Requires** 1 and **only 1** of the following attributes `itemId`, `url`, or `layer`. Adding more than 1 of these will cause some of them to be ignored and can also result in errors.
 
 
-_import and require are both supported_
+_~~import and require are both supported~~_
+_**Only** import can be used since this relies on a peer of an ES module only package_
 ```js
 import {Viewer} from 'react-arcgis-wmws
-```
--or-
-```js
-const {Viewer} = require('react-arcgis-wmws')
 ```
 
 **NOTE**
