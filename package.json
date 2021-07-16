@@ -1,6 +1,6 @@
 {
   "name": "react-arcgis-wmws",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React component to display an arcgis online webmap, webscene or feature table. Use esmodules version of the ArcGIS Javascript API. Does not use esri-loader.",
   "main": "./dist/esm/index.js",
   "module": "./dist/esm/index.js",
