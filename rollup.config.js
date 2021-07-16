@@ -9,7 +9,7 @@ export default [
     input: './src/index.ts',
     output: [
       {
-        dir: './dist/esm',
+        dir: './dist/',
         format: 'es',
         exports: 'named'
       }
@@ -20,7 +20,7 @@ export default [
       commonjs(),
       typescript({
         target: 'ESNext',
-        declarationDir: './dist/esm'
+        declarationDir: './dist/'
       }),
       postcss()
     ]
