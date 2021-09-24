@@ -1,2 +1,0 @@
-import{P as e,B as a,aZ as n}from"./vendor.7103ff48.js";function t(t,i,s,r=new e){let f;if("2d"===s.type)f=i*s.resolution;else if("3d"===s.type){const e=s.overlayPixelSizeInMapUnits(t),r=s.basemapSpatialReference;f=a(r)&&!r.equals(s.spatialReference)?n(r)/n(s.spatialReference):i*e}const l=t.x-f,m=t.y-f,p=t.x+f,o=t.y+f,{spatialReference:x}=s;return r.xmin=Math.min(l,p),r.ymin=Math.min(m,o),r.xmax=Math.max(l,p),r.ymax=Math.max(m,o),r.spatialReference=x,r}new e;export{t as a};
-//# sourceMappingURL=drapedUtils.fabca730.js.map

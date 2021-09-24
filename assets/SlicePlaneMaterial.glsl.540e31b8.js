@@ -1,2 +1,0 @@
-import"./vendor.7103ff48.js";export{r as build}from"./SliceLayerView3D.d6bfea66.js";import"./BuildingComponentSublayer.0363077d.js";import"./capabilities.56d3f1fc.js";import"./I3SIndexInfo.27dc4373.js";import"./I3SLayerDefinitions.348b7ecc.js";import"./LineVisualElement.a7c721d3.js";import"./ImageMaterialTechnique.920f1ced.js";import"./persistable.2e27d0f9.js";
-//# sourceMappingURL=SlicePlaneMaterial.glsl.540e31b8.js.map

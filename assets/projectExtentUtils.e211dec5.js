@@ -1,2 +1,0 @@
-import{hS as e,B as r,iz as l}from"./vendor.7103ff48.js";function o(o){const s=o.view.spatialReference,t=o.layer.fullExtent,n=t&&t.spatialReference;if(!n)return Promise.resolve(null);if(n.equals(s))return Promise.resolve(t.clone());const i=e(t,s);return r(i)?Promise.resolve(i):o.view.state.isLocal?l(t,s,o.layer.portalItem).then((e=>!o.destroyed&&e?e:void 0)).catch((()=>null)):Promise.resolve(null)}export{o as t};
-//# sourceMappingURL=projectExtentUtils.e211dec5.js.map

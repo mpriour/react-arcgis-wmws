@@ -1,2 +1,0 @@
-import{I as e}from"./Utils.8f00ae04.js";import{a as i}from"./BaseGraphicContainer.8758663f.js";class r extends i{renderChildren(i){this.attributeView.bindTextures(i.context,!1),this.children.some((e=>e.hasData))&&(super.renderChildren(i),i.drawPhase===e.MAP&&this._renderChildren(i),this.hasHighlight()&&i.drawPhase===e.HIGHLIGHT&&this._renderHighlight(i))}_renderHighlight(e){const{painter:i}=e,r=i.effects.highlight;r.bind(e),this._renderChildren(e,r.defines),r.draw(e),r.unbind()}}export{r};
-//# sourceMappingURL=GraphicContainer.aef7333c.js.map
