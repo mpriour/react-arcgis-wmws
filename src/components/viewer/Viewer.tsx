@@ -1,4 +1,5 @@
 import React from "react";
+import config from "@arcgis/core/config";
 import { WebMapView } from "../webmap/WebMapView";
 import { WebSceneView } from "../webscene/WebSceneView";
 
@@ -12,6 +13,8 @@ interface IViewerProps {
   showLegend?: boolean;
   env?: 'prod' | 'qa' | 'uat' | 'dev';
 }
+
+config.request.useIdentity = false;
 
 const Viewer = ({
   dimension,
