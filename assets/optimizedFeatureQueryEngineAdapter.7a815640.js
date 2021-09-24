@@ -1,0 +1,2 @@
+import{e as t}from"./centroid.f07ef5b9.js";import{b2 as e,f2 as r}from"./vendor.7103ff48.js";const o={getObjectId:t=>t.objectId,getAttributes:t=>t.attributes,getAttribute:(t,e)=>t.attributes[e],cloneWithGeometry:(t,e)=>new r(e,t.attributes,null,t.objectId),getGeometry:t=>t.geometry,getCentroid:(r,o)=>(r.centroid||(r.centroid=t(new e,r.geometry,o.hasZ,o.hasM)),r.centroid)};export{o};
+//# sourceMappingURL=optimizedFeatureQueryEngineAdapter.7a815640.js.map

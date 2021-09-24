@@ -1,0 +1,2 @@
+import{eH as e,eG as o}from"./vendor.7103ff48.js";var t,r,s={exports:{}};t=s,void 0!==(r=function(e,o){Object.defineProperty(o,"__esModule",{value:!0}),o.default={"Zoom Out":"Oddialiť","From %1 to %2":"Z %1 do %2","From %1":"Z %1","To %1":"Do %1"}}(0,s.exports))&&(t.exports=r);var a=o(s.exports),d=Object.freeze(Object.assign(Object.create(null),s.exports,{default:a}));export{d as s};
+//# sourceMappingURL=sk_SK.807667b6.js.map

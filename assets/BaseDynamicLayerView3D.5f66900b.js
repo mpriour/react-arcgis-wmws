@@ -1,0 +1,2 @@
+import{F as e,H as r}from"./vendor.7103ff48.js";import{U as s}from"./DynamicLayerView3D.29c99608.js";import"./projectExtentUtils.e211dec5.js";import"./ImageMaterialTechnique.920f1ced.js";import"./RefreshableLayerView.7b9ab281.js";let a=class extends s{constructor(){super(...arguments),this.type="base-dynamic-3d"}};a=e([r("esri.views.3d.layers.BaseDynamicLayerView3D")],a);var t=a;export{t as default};
+//# sourceMappingURL=BaseDynamicLayerView3D.5f66900b.js.map
