@@ -76,7 +76,9 @@ import {TableView} from 'react-arcgis-wmws';
 
 
 _~~import and require are both supported~~_
-_**Only** import can be used since this relies on a peer of an ES module only package_
+
+_**Only** import can be used since this relies on a peer of an ES module **only** package_
+
 ```js
 import {Viewer} from 'react-arcgis-wmws
 ```
